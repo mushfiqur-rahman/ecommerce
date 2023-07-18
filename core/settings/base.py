@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'store',
     'tags',
     'likes',
+    'playground',
 
     'debug_toolbar',
 ]
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +82,7 @@ DATABASES = {
     }
 }
 """
-
+# for postgreSQL
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
