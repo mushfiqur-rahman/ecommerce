@@ -58,10 +58,7 @@ class Customer(models.Model):
         return f'{self.first_name} {self.last_name}'
 
     class Meta:
-        ordering = ['last_name', 'first_name']
-        permissions = [
-            ('view_history', 'Can View History')
-        ]
+        ordering = ['first_name', 'last_name']
 
 
 class Order(models.Model):
@@ -78,6 +75,7 @@ class Order(models.Model):
     payment_status = models.CharField(
         max_length=1, choices=PAYMENT_STATUS_CHOICES, default=PAYMENT_STATUS_PENDING
     )
+    customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
 
 
 class OrderItem(models.Model):
