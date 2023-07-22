@@ -36,6 +36,7 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -80,7 +81,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '123654789'
 
-}
+    }
 }
 
 """
@@ -127,6 +128,19 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+# http://www.i18nguy.com/unicode/language-identifiers.html
+
+LANGUAGES = [
+    ('en', 'English'),
+    ('bn', 'Bangladesh'),
+    ('ar', 'Saudi Arabia'),
+    ('tr', 'Turkey'),
+    ('es', 'Spanish'),
+    ('fr', 'French'),
+    ('hi', 'Hindi'),
+
+]
 
 TIME_ZONE = 'UTC'
 
