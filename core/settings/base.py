@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'store',
+    'store_custom',
     'tags',
     'likes',
     'playground',
