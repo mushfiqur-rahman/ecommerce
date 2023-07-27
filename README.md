@@ -14,3 +14,12 @@ I am trying to avoid **Monolith** because it's hard to maintain.
 ____
 
 **Dummy data populate from [mockaroo](https://www.mockaroo.com/)**
+
+**Serializing Relationship**
+ > Primary Key
+ 
+ > String
+ 
+ > Nested Object
+ 
+ > Hyperlink
