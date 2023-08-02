@@ -8,7 +8,7 @@ from .serializers import ProductSerializer
 
 
 # Create your views here.
-@api_view()
+@api_view(['GET', 'POST'])
 def product_list(request):
     # queryset = Product.objects.all()
     queryset = Product.objects.select_related('collection').all()
