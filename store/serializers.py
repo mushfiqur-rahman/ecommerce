@@ -12,7 +12,7 @@ class CollectionSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField()
     title = serializers.CharField(max_length=255)
 """
-    products_count = serializers.IntegerField()
+    products_count = serializers.IntegerField(read_only=True)
 
 
 class ProductSerializer(serializers.ModelSerializer):
