@@ -8,10 +8,8 @@ from .models import Collection, Product
 from .serializers import CollectionSerializer, ProductSerializer
 
 
-# Create your views here.
 @api_view(['GET', 'POST'])
 def product_list(request):
-    # queryset = Product.objects.all()
     if request.method == 'GET':
         queryset = Product.objects.select_related('collection').all()
         serializer = ProductSerializer(
@@ -21,7 +19,7 @@ def product_list(request):
         serializer = ProductSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        return Response(serializer.data, status.HTTP_201_CREATED)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -37,8 +35,7 @@ def product_detail(request, id):
         return Response(serializer.data)
     elif request.method == 'DELETE':
         if product.orderitems.count() > 0:
-            return Response({'error': 'Product cannot be deleted because it is associated with an order item.'},
-                            status=status.HTTP_405_METHOD_NOT_ALLOWED)
+            return Response({'error': 'Product cannot be deleted because it is associated with an order item.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
         product.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -71,7 +68,6 @@ def collection_detail(request, pk):
         return Response(serializer.data)
     elif request.method == 'DELETE':
         if collection.products.count() > 0:
-            return Response({'error': 'Collection cannot be deleted because it includes one or more products.'},
-                            status=status.HTTP_405_METHOD_NOT_ALLOWED)
+            return Response({'error': 'Collection cannot be deleted because it includes one or more products.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
         collection.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
