@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'playground',
 
     'debug_toolbar',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
