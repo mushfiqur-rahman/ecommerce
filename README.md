@@ -62,8 +62,7 @@ Add Order
 ## Django Rest API 
 
 *URL: http://127.0.0.1:8000/store/*
-
-![api root](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/26275aa2-05b5-4054-b39d-10d785cdb7c2)
+![api root](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/5dabc338-60ee-4280-9b5d-74e7d23f4dfa)
 
 -
 **Product list**
