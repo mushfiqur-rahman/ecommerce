@@ -41,8 +41,7 @@ ___________
 **Customer**
 ![4  Customer with membership plan](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/3ffe5380-f758-4706-b0f1-9c88c60a458b)
 
-- 
-Add Customer
+- Add Customer
 ![5  add customer](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/0d3416c7-81f4-4dee-a0f4-440f29a68e63)
 
 **Orders**
@@ -55,24 +54,50 @@ Add Order
 **Products**
 ![8  products](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/a92c4807-3b1f-4d3e-a3c8-01d6bcc15929)
 
--
-**Add product**
+- **Add product**
 ![9  add product](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/c30a4b45-aa3b-4498-9875-f1eb1ed5eb5e)
 
 ## Django Rest API 
 
 *URL: http://127.0.0.1:8000/store/*
-![api root](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/5dabc338-60ee-4280-9b5d-74e7d23f4dfa)
+![api home](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/80faf5e4-19ec-44f8-a80b-a60c3f772dd8)
 
--
-**Product list**
+- **Product list**
 *url:http://127.0.0.1:8000/store/products/*
-![product_list](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/c844fb66-0c31-4cc1-a60a-9acbac5e12d6)
+![product list](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/2f21db0b-c5e6-4837-adb3-9d53be524fcb)
+
+
+- **product add**
+![product add api](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/c133e3d4-f7cd-4c23-9f48-8ddaebf81b26)
+
+
+- **Product Filtering**
+![product filtering](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/bd5fc40f-7454-4cbf-9a5c-4e5e67b6b162)
+
+- **Product Details**
+*url:http://127.0.0.1:8000/store/products/423/*
+![product details](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/07913b1c-ff10-4c78-9451-ce2040974028)
+
+
+- **Collection list API**
+![collection list](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/5cc63268-bc0a-4ded-a3d4-4fe27d3383d0)
+
+
+- **Cart List**
+![cart list](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/97536a15-0983-48af-9294-9cd9a1e80582)
+
+
+- **User Create**
+**http://127.0.0.1:8000/auth/users/**
+![create user](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/4c866355-c075-472f-a5e2-719a1254a99d)
+
+
+- **Customer List**
+![customer list](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/75bf4023-4e7a-40f6-a161-3956f0bcb11a)
+
+
 
 -
-**Single Product**
-*url:http://127.0.0.1:8000/store/products/423/*
-![single_product](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/4892ab4e-0563-451b-a5bc-c62f5731dc76)
 
 
 
