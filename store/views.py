@@ -10,9 +10,9 @@ from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyM
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .filters import ProductFilter
 from .models import Collection, Product, OrderItem, CartItem, Review, Cart, Customer
-from .permissions import IsAdminOrReadOnly, FullDjangoModelPermissions, ViewCustomerHistoryPermissions
-from .serializers import CollectionSerializer, ProductSerializer, ReviewSerializer, CartSerializer, CartItemSerializer, \
-    AddCartItemSerializer, UpdateCartItemSerializer, CustomerSerializer
+from .permissions import IsAdminOrReadOnly, ViewCustomerHistoryPermission
+from .serializers import (CollectionSerializer, ProductSerializer, ReviewSerializer, CartSerializer, \
+                          CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer, CustomerSerializer)
 
 
 class ProductViewSet(ModelViewSet):
@@ -89,14 +89,15 @@ class CustomerViewSet(ModelViewSet):
     serializer_class = CustomerSerializer
     permission_classes = [IsAdminUser]
 
-    @action(detail=True, permission_classes=[ViewCustomerHistoryPermissions])
+    @action(detail=True, permission_classes=[ViewCustomerHistoryPermission])
     def history(self, request, pk):
         return Response('ok')
 
     @action(detail=False, methods=['GET', 'PUT'], permission_classes=[IsAuthenticated])
     def me(self, request):
-        (customer, created) = Customer.objects.get_or_create(user_id=request.user.id)
-        if request.method == "GET":
+        (customer, created) = Customer.objects.get_or_create(
+            user_id=request.user.id)
+        if request.method == 'GET':
             serializer = CustomerSerializer(customer)
             return Response(serializer.data)
         elif request.method == 'PUT':
