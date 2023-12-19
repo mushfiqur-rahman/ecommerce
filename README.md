@@ -33,6 +33,14 @@ Token create
 ```bashscript
 http://127.0.0.1:8000/auth/jwt/create
 ```
+```bashscript
+http://127.0.0.1:8000/auth/jwt/refresh
+```
+#### MOD Hear
+```bashscript
+JWT refresh token
+```
+
 
 **Dashboard**
 ![1](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/aa73184b-a196-4ddc-9638-5cfb169720d4)
