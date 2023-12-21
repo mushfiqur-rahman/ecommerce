@@ -161,7 +161,7 @@ class CreateOrderSerializer(serializers.Serializer):
                     unit_price=item.product.unit_price,
                     quantity=item.quantity
                 ) for item in cart_items
-            ];
+            ]
             OrderItem.objects.bulk_create(order_items)
 
             Cart.objects.filter(pk=cart_id).delete()
