@@ -31,21 +31,22 @@ class ProductViewSet(ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         if OrderItem.objects.filter(product_id=kwargs['pk']).count() > 0:
-            return Response({'error': 'Product cannot be deleted because it is associated with an order item.'},
-                            status=status.HTTP_405_METHOD_NOT_ALLOWED)
-        return super().destroy(request, *args, *kwargs)
+            return Response({'error': 'Product cannot be deleted because it is associated with an order item.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+        return super().destroy(request, *args, **kwargs)
 
 
 class CollectionViewSet(ModelViewSet):
-    queryset = Collection.objects.annotate(products_count=Count('products'))
+    queryset = Collection.objects.annotate(
+        products_count=Count('products')).all()
     serializer_class = CollectionSerializer
     permission_classes = [IsAdminOrReadOnly]
 
     def destroy(self, request, *args, **kwargs):
-        if CartItem.objects.filter(product__collection_id=kwargs['pk']).count() > 0:
-            return Response({'error': 'Collection cannot be deleted because it includes one or more products.'},
-                            status=status.HTTP_405_METHOD_NOT_ALLOWED)
-        return super().destroy(request, *args, *kwargs)
+        if Product.objects.filter(collection_id=kwargs['pk']):
+            return Response({'error': 'Collection cannot be deleted because it includes one or more products.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+        return super().destroy(request, *args, **kwargs)
 
 
 class ReviewViewSet(ModelViewSet):
@@ -109,7 +110,7 @@ class CustomerViewSet(ModelViewSet):
 
 
 class OrderViewSet(ModelViewSet):
-    http_method_names = ['get', 'patch', 'delete', 'head', 'options']
+    http_method_names = ['get', 'post', 'patch', 'delete', 'head', 'options']
 
     def get_permissions(self):
         if self.request.method in ['PATCH', 'DELETE']:
@@ -134,8 +135,10 @@ class OrderViewSet(ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
+
         if user.is_staff:
             return Order.objects.all()
 
-        customer_id = Customer.objects.only('id').get(user_id=user.id)
+        customer_id = Customer.objects.only(
+            'id').get(user_id=user.id)
         return Order.objects.filter(customer_id=customer_id)
