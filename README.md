@@ -10,7 +10,15 @@ _This is Advance ecommerce project_
  
 I am trying to avoid **Monolith** because it's hard to maintain. 
 
+## Features
 
+* RESTfull API
+* Token based authentication
+* Uploading files
+* Sending emails
+* Running background tasks
+* Performance testing
+* Caching
 ____
 
 **Dummy data populate from [mockaroo](https://www.mockaroo.com/)**
@@ -108,7 +116,6 @@ Add Order
 
 - **Customer List**
 ![customer list](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/75bf4023-4e7a-40f6-a161-3956f0bcb11a)
-
 
 
 -
