@@ -15,7 +15,7 @@ I am trying to avoid **Monolith** because it's hard to maintain.
 * RESTfull API
 * Token based authentication
 * Uploading files
-* Sending emails
+* Sending emails, [Fake SMTP for dev](https://github.com/rnwood/smtp4dev)
 * Running background tasks
 * Performance testing
 * Caching
@@ -117,8 +117,15 @@ Add Order
 - **Customer List**
 ![customer list](https://github.com/mushfiqur-rahman/ecommerce/assets/26889268/75bf4023-4e7a-40f6-a161-3956f0bcb11a)
 
+___
+### Configuring Email Back-end
 
--
+<b>Type of backend for email:</b>
+* SMTP(default)
+* Console
+* File
+* Locmem
+* Dummy
 
 
 
