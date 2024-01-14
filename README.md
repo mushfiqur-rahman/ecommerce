@@ -127,5 +127,12 @@ ___
 * Locmem
 * Dummy
 
+### Celery
+<b>Long Running tasks:</b>
+
+* Processing Images and videos
+* Generating reports
+* Sending Emails
+* Running machine learning models
 
 

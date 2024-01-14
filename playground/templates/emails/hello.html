@@ -1,0 +1,26 @@
+{% block subject %}
+    This is a long subject
+{% endblock %}
+
+{% block text_body %}
+    This is a body
+{% endblock %}
+
+{% block html_body %}
+
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>E-mail</title>
+    </head>
+    <body>
+    <div style="text-align: center">
+        <h1 style="color: blueviolet">Hello!</h1>
+        <p style="color: crimson">My Name is <span style="font-weight: bold">{{ name }}</span></p>
+    </div>
+    </body>
+    </html>
+{% endblock %}
