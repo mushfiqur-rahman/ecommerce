@@ -19,6 +19,8 @@ I am trying to avoid **Monolith** because it's hard to maintain.
 * Running background tasks
 * Performance testing
 * Caching
+* Schedule SMS send
+* Automated Testing
 ____
 
 **Dummy data populate from [mockaroo](https://www.mockaroo.com/)**
