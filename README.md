@@ -137,4 +137,12 @@ ___
 * Sending Emails
 * Running machine learning models
 
+### Test Frameworks
+
+* unittest
+* pytest
+  * More Features
+  * Tone of plugins
+  * Less boilerplate
+
 
