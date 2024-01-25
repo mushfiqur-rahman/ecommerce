@@ -144,5 +144,7 @@ ___
   * More Features
   * Tone of plugins
   * Less boilerplate
+> Tests should have a single responsibility
+> That can be multiple assertion
 
 
