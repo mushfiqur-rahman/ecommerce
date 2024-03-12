@@ -147,4 +147,12 @@ ___
 > Tests should have a single responsibility
 > That can be multiple assertion
 
+### Performance Test
 
+```bash
+locust -f locustfiles/browse_products.py
+```
+> Open Browser
+```bash
+http://localhost:8089/
+```
