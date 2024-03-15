@@ -156,3 +156,10 @@ locust -f locustfiles/browse_products.py
 ```bash
 http://localhost:8089/
 ```
+
+### Optimizations
+* Optimize the Python code
+* Re-write the query
+* Tune the database
+* Cache the result
+* Buy more hardware
