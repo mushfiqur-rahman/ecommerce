@@ -1,5 +1,3 @@
-from store.models import Product
-
 # Preload related objects
 
 Product.objects.select_related('...')
