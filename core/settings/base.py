@@ -51,8 +51,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if DEBUG:
-    MIDDLEWARE += ['silk.middleware.SilkyMiddleware']
+# if DEBUG:
+#     MIDDLEWARE += ['silk.middleware.SilkyMiddleware']
 
 INTERNAL_IPS = [
     # ...
@@ -206,7 +206,7 @@ EMAIL_PORT = 2525
 DEFAULT_FROM_EMAIL = 'john@moshbuy.com'
 
 ADMINS = [
-        ('Mushfiq', 'mushfiq.kdu@gmail.com')
+    ('Mushfiq', 'mushfiq.kdu@gmail.com')
 ]
 
 CELERY_BROKER_URL = 'redis://localhost:6379/1'
@@ -214,4 +214,14 @@ CELERY_BEAT_SCHEDULE = {
     'task': 'playground.tasks.notify_customers',
     'schedule': 5,
     'args': ["Hello World"]
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/2",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
 }
