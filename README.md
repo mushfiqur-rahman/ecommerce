@@ -172,3 +172,10 @@ http://localhost:8089/
 ```bash
 docker run -d -p 6379:6379 redis
 ```
+
+### Severity
+- DEBUG
+- INFO
+- WARNING
+- ERROR
+- CRITICAL
