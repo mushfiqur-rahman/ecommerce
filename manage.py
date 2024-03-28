@@ -2,13 +2,13 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from core.settings import base
+from core.settings import common
 
 
 def main():
     """Run administrative tasks."""
-    if base.DEBUG:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.local')
+    if common.DEBUG:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.dev')
     else:
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.production') 
            
