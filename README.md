@@ -179,3 +179,8 @@ docker run -d -p 6379:6379 redis
 - WARNING
 - ERROR
 - CRITICAL
+
+### Production server
+```bash script
+gunicorn core.wsgi 
+```
