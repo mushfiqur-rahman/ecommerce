@@ -2,15 +2,11 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from core.settings import common
 
 
 def main():
     """Run administrative tasks."""
-    if common.DEBUG:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.dev')
-    else:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.production') 
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.dev')
            
     try:
         from django.core.management import execute_from_command_line
