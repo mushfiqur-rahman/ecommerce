@@ -161,7 +161,7 @@ EMAIL_HOST = 'localhost'
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 2525
-DEFAULT_FROM_EMAIL = 'john@moshbuy.com'
+DEFAULT_FROM_EMAIL = 'info@mushfiq.xyz'
 
 ADMINS = [
     ('Mushfiq', 'mushfiq.kdu@gmail.com')
@@ -169,9 +169,11 @@ ADMINS = [
 
 CELERY_BROKER_URL = 'redis://localhost:6379/1'
 CELERY_BEAT_SCHEDULE = {
-    'task': 'playground.tasks.notify_customers',
-    'schedule': 5,
-    'args': ["Hello World"]
+    'notify_customers': {
+        'task': 'playground.tasks.notify_customers',
+        'schedule': 5,
+        'args': ["Hello World"]
+    }
 }
 
 CACHES = {

@@ -7,31 +7,31 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommerce',
-        'HOST': 'localhost',
+        'HOST': 'mysql',
         'USER': 'root',
         'PASSWORD': '123654789'
 
     }
 }
 
-"""
-DATABASES = {
+
+CELERY_BROKER_URL = 'redis://redis:6379/1'
+CACHES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://redis:6379/2',
+        'TIMEOUT': 10 * 60,
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
     }
 }
-"""
-"""
-# for postgreSQL
-DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'ecommerce',
-       'USER': 'postgres',
-       'PASSWORD': '123654789',
-       'HOST': '127.0.0.1',
-       'PORT': '5432',
-   }
+
+EMAIL_HOST = 'smtp4dev'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 2525
+
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': lambda request: True
 }
-"""
