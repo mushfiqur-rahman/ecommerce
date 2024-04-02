@@ -1,0 +1,78 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+      - redis
+      
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      - MYSQL_DATABASE=ecommerce
+      - MYSQL_ROOT_PASSWORD=123654789
+    volumes:
+      - mysqldata:/var/lib/mysql 
+
+  redis:
+    image: redis:7.0.11-alpine
+    ports:
+      - 6379:6379
+    restart: always
+    volumes:
+      - redisdata:/data
+  
+
+  smtp4dev:
+    image: rnwood/smtp4dev:v3
+    ports:
+      - 5000:80
+      - 25:25
+    restart: always
+
+  celery:
+    build: .
+    command: celery -A ecommerce worker --loglevel=info
+    volumes:
+      - .:/code
+    depends_on:      
+      - redis
+
+  celery-beat:
+    build: .
+    command: celery -A ecommerce beat --loglevel=info
+    volumes:
+      - .:/code
+    depends_on:      
+      - redis
+
+  flower:
+    build: .
+    command: celery -A ecommerce flower
+    volumes:
+      - .:/code
+    ports:
+      - "5555:5555"
+    depends_on:
+      - web
+      - redis
+      - celery
+    environment:
+      - DEBUG=1
+      - CELERY_BROKER=redis://redis:6379/0
+      - CELERY_BACKEND=redis://redis:6379/0  
+
+volumes:
+  mysqldata:
+  pgdata:
+  redisdata:
